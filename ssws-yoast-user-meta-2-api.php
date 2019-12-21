@@ -1,14 +1,14 @@
 <?php
 /**
  * @package SSWS Yoast User Meta Information 2 WP REST API
- * @version 1.0.0
+ * @version 1.0.5
  */
 /*
 Plugin Name: SSWS Yoast User Meta Information 2 WP REST API
 Plugin URI: https://github.com/giorgioriccardi/ssws-yoast-user-meta-2-api
 Description: Add Yoast user social media meta information to the WP REST API
 Author: Giorgio Riccardi
-Version: 1.0.0
+Version: 1.0.5
 Author URI: https://www.seatoskywebsolutions.ca/
 Require: Wordpress Seo plugin by Yoast
 */
