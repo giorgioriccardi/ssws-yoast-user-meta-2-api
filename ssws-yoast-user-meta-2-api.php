@@ -22,22 +22,22 @@ Require: Wordpress Seo plugin by Yoast
 // Social links listed from the Yoast plugin
 // Requires a lot of WET repetition if we have to implemente each one of them
 $social_profiles = [
-    'facebook',
-    'instagram',
-    'linkedin',
-    'pinterest',
-    'twitter',
-    'myspace',
-    'youtube',
-    'soundcloud',
-    'tumblr',
-    'wikipedia',
+    // 'facebook',
+    // 'instagram',
+    // 'linkedin',
+    // 'pinterest',
+    // 'twitter',
+    // 'myspace',
+    // 'youtube',
+    // 'soundcloud',
+    // 'tumblr',
+    // 'wikipedia',
 ];
 
-// Register Twitter endpoint
-function twitter_add_user_data() {
+// Register all Yoast user endpoints
+function ssws_add_user_data_2_rest() {
 	register_rest_field( 'user',
-		'twitter', // for now let's just test Twitter
+		'yoast_user_meta',
 		array(
 			'get_callback'  	=> 'rest_get_user_field',
 			'update_callback'   => null,
@@ -45,39 +45,10 @@ function twitter_add_user_data() {
 		 )
 	);
 }
-add_action( 'rest_api_init', 'twitter_add_user_data' );
+add_action( 'rest_api_init', 'ssws_add_user_data_2_rest' );
 
-// Crapbook
-function facebook_add_user_data() {
-	register_rest_field( 'user',
-		'facebook',
-		array(
-			'get_callback'  	=> 'rest_get_user_field',
-			'update_callback'   => null,
-			'schema'            => null,
-		 )
-	);
-}
-add_action( 'rest_api_init', 'facebook_add_user_data' );
-
-// Linkedin
-function linkedin_add_user_data() {
-	register_rest_field( 'user',
-		'linkedin',
-		array(
-			'get_callback'  	=> 'rest_get_user_field',
-			'update_callback'   => null,
-			'schema'            => null,
-		 )
-	);
-}
-add_action( 'rest_api_init', 'linkedin_add_user_data' );
-
-function rest_get_user_field( $user, $field_name, $request ) {
-	return get_user_meta( $user[ 'id' ], $field_name, true );
-}
-
-// Output user social media fields value
+// Output user social media fields value in REST
+// /wp-json/wp/v2/users
 function rest_get_user_field( $user, $field_name, $request ) {
 	return get_user_meta( $user[ 'id' ], $field_name, true );
 }
