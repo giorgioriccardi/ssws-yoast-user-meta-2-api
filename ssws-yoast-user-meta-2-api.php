@@ -16,13 +16,25 @@ Require: Wordpress Seo plugin by Yoast
 /**
  * Enable custom endpoints for user social links
  *
- * WET approach versus DRY, this is not a programmatically correct execution,
- * but does the job cheap and dirty.
- *
  * Custom fields are provided by the Yoast SEO plugin
  */
 
- // Register Twitter endpoint
+// Social links listed from the Yoast plugin
+// Requires a lot of WET repetition if we have to implemente each one of them
+$social_profiles = [
+    'facebook',
+    'instagram',
+    'linkedin',
+    'pinterest',
+    'twitter',
+    'myspace',
+    'youtube',
+    'soundcloud',
+    'tumblr',
+    'wikipedia',
+];
+
+// Register Twitter endpoint
 function twitter_add_user_data() {
 	register_rest_field( 'user',
 		'twitter', // for now let's just test Twitter
