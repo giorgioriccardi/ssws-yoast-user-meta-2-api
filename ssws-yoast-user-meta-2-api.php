@@ -50,5 +50,9 @@ add_action( 'rest_api_init', 'ssws_add_user_data_2_rest' );
 // Output user social media fields value in REST
 // /wp-json/wp/v2/users
 function rest_get_user_field( $user, $field_name, $request ) {
+	// if (empty($field_name)) {
+	if ($field_name = '') {
+        return;
+    }
 	return get_user_meta( $user[ 'id' ], $field_name, true );
 }
