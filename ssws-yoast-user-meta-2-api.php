@@ -35,7 +35,37 @@ function twitter_add_user_data() {
 }
 add_action( 'rest_api_init', 'twitter_add_user_data' );
 
-// Output user Twitter field value
+// Crapbook
+function facebook_add_user_data() {
+	register_rest_field( 'user',
+		'facebook',
+		array(
+			'get_callback'  	=> 'rest_get_user_field',
+			'update_callback'   => null,
+			'schema'            => null,
+		 )
+	);
+}
+add_action( 'rest_api_init', 'facebook_add_user_data' );
+
+// Linkedin
+function linkedin_add_user_data() {
+	register_rest_field( 'user',
+		'linkedin',
+		array(
+			'get_callback'  	=> 'rest_get_user_field',
+			'update_callback'   => null,
+			'schema'            => null,
+		 )
+	);
+}
+add_action( 'rest_api_init', 'linkedin_add_user_data' );
+
+function rest_get_user_field( $user, $field_name, $request ) {
+	return get_user_meta( $user[ 'id' ], $field_name, true );
+}
+
+// Output user social media fields value
 function rest_get_user_field( $user, $field_name, $request ) {
 	return get_user_meta( $user[ 'id' ], $field_name, true );
 }
