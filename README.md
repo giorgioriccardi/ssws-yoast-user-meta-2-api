@@ -7,6 +7,8 @@ The only problem is that the user data is not implemented and right now, Decembe
 
 See [User Yoast Social Links not available in REST API](https://wordpress.org/support/topic/user-yoast-social-links-not-available-in-rest-api/)
 
-So this rough plugin implemntes those endopoints for the user object in REST:
+So this rough plugin implementes those endopoints for the user object in WP REST:
+
 `/wp-json/wp/v2/users`
+
 **https://your-site.com/wp-json/wp/v2/users**
